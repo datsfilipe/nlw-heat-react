@@ -60,7 +60,12 @@ export function MessageList() {
                 <div className={styles.userImage}>
                   <img src={message.user.avatar_url} alt={message.user.name} />
                 </div>
-                <span>{message.user.name}</span>
+                <button>
+                  {message.user.name}
+                  <div className={styles.dropdownContent}>
+                    <a href='#'>Ver perfil</a>
+                  </div>
+                </button>
               </div>
             </li>
           )

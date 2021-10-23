@@ -3,16 +3,34 @@
   width: 100%;
   background: #17171A url(../../assets/banner-girl.png) no-repeat center top;
 
-  padding: 440px 88px 0;
+  padding: 44rem 8.8rem 0;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
+  @keyframes buttonMovement {
+    from {
+      top: 0;
+    }
+    25% {
+      top: 1px;
+    }
+    50% {
+      top: 2px;
+    }
+    75% {
+      top: 1px;
+    }
+    to {
+      top: 0;
+    }
+  }
+
   strong {
-    font-size: 32px;
-    line-height:36px;
+    font-size: 3.2rem;
+    line-height: 3.6rem;
   }
 
   .signInWithGithub {
@@ -30,8 +48,18 @@
     justify-content: center;
     align-items: center;
 
+    border-radius: 4px;
+
+    position: relative;
+
     svg {
       margin-right: 16px;
+    }
+
+    &:active {
+      animation-name: buttonMovement;
+      animation-duration: 250ms;
+      animation-iteration-count: 1;
     }
 
     &:hover {
