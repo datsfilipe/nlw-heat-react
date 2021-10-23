@@ -11,11 +11,20 @@ export function SendMessageForm () {
   async function handleSendMessage(event: FormEvent) {
     event.preventDefault()
 
-    if (!message.trim()) return;
+    if (!message.trim()) {
+      toast.error('Insira algo na mensagem para enviar')
+      return
+    }
 
-    await api.post('messages', { message })
+    try {
+      await api.post('messages', { message })
 
-    setMessage('')
+      toast.success('Mensagem enviada!')
+    } catch (err: any) {
+      toast.error(`Mensagem não enviada, erro: ${err.message}`)
+    } finally {
+      setMessage('')
+    }
   }
 
   return (
