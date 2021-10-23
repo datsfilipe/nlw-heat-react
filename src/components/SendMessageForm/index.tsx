@@ -1,4 +1,5 @@
 import { FormEvent, useContext, useState } from 'react'
+import toast from 'react-hot-toast'
 import { VscGithubInverted, VscSignOut } from 'react-icons/vsc'
 import { AuthContext } from '../../contexts/Auth'
 import { api } from '../../services/api'

@@ -18,24 +18,45 @@
   justify-content: center;
   gap: 40px;
   flex: 1;
+
+  @keyframes fallingDownMessages {
+    from {
+      opacity: 0.3;
+      top: -30%;
+    }
+    to {
+      opacity: 1;
+      top: 0;
+    }
+  }
 }
 
 .message {
-  max-width: 440px;
+  max-width: 44rem;
+  min-width: 25rem;
+  position: relative;
+  background: #1b1b1f;
+  padding: 1.8rem;
+  border-radius: 15px;
 
   &:nth-child(2) {
-    margin-left: 80px;
+    margin-left: 8rem;
   }
 
+  animation-name: fallingDownMessages;
+  animation-duration: 500ms;
+  animation-iteration-count: 1;
+
   .messageContent {
-    font-size: 20px;
-    line-height: 28px;
+    font-size: 1.8rem;
+    line-height: 2.8rem;
   }
 
   .messageUser {
     margin-top: 16px;
     display: flex;
     align-items: center;
+    position: relative;
 
     .userImage {
       padding: 2px;
@@ -44,8 +65,8 @@
       line-height: 0;
 
       img {
-        width: 30px;
-        height: 30px;
+        width: 3rem;
+        height: 3rem;
         border-radius: 50%;
         border: 4px solid #121214;
       }
