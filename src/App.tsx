@@ -8,13 +8,10 @@ export function App() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/">
+        <Route path="/" exact>
           <Redirect to="/home" />
         </Route>
-        <Route path="/home">
-          <Redirect to="/home" />
-        </Route>
-        <Route path="/home" component={Home} />
+        <Route path="/home" exact component={Home} />
         <Route path='/:login'>
           <Profile />
         </Route>
