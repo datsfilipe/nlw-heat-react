@@ -4,8 +4,10 @@ import { api } from "../services/api";
 type User = {
   id: string;
   name: string;
-  avatar_url: string;
+  avatar_url: string; 
   login: string;
+  admin: boolean;
+  description?: string;
 }
 
 type AuthResponse = {
@@ -15,6 +17,8 @@ type AuthResponse = {
     avatar_url: string;
     name: string;
     login: string;
+    admin: boolean;
+    description?: string;
   }
 }
 
@@ -60,7 +64,7 @@ export function AuthProvider(props: AuthProviderProps) {
     if(token) {
       api.defaults.headers.common.authorization = 'Bearer ' + token
 
-      api.get<User>('profile').then(response => {
+      api.get<User>('user').then(response => {
         setUser(response.data)
       })
     }
