@@ -8,7 +8,10 @@ export function App() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/">
+        <Route path="/">
+          <Redirect to="/home" />
+        </Route>
+        <Route path="/home">
           <Redirect to="/home" />
         </Route>
         <Route path="/home" component={Home} />
