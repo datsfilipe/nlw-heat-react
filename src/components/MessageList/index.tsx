@@ -2,13 +2,18 @@ import { useEffect, useState } from 'react'
 import { api } from '../../services/api'
 import { io } from 'socket.io-client'
 
+import { useHistory } from 'react-router-dom'
+
 import styles from './styles.module.scss'
 import logoImg from '../../assets/logo.svg'
 
-type Message = {
+export type Message = {
   id: string;
+  user_id: string;
   text: string;
+  created_at: string;
   user: {
+    login: string;
     name: string;
     avatar_url: string;
   }
@@ -16,7 +21,7 @@ type Message = {
 
 const messagesQueue: Message[] = []
 
-const socket = io('https://nlw-heat-backend.herokuapp.com')
+const socket = io('https://nlw-heat-backend.herokuapp.com/')
 
 socket.on('new_message', newMessage => {
   messagesQueue.push(newMessage)
@@ -24,10 +29,12 @@ socket.on('new_message', newMessage => {
 
 export function MessageList() {
   const [messages, setMessages] = useState<Message[]>([])
+  const history = useHistory();
 
   useEffect(() => {
     api.get<Message[]>('messages/last3').then(response => {
       setMessages(response.data)
+      console.log(response.data)
     })
   }, [])
 
@@ -44,6 +51,10 @@ export function MessageList() {
       }
     }, 3000)
   }, [])
+
+  function handleShowProfile (login: string) {
+    history.push(`/${login}`);
+  }
 
   return (
     <div className={styles.messageListWrapper}>
@@ -63,7 +74,7 @@ export function MessageList() {
                 <button>
                   {message.user.name}
                   <div className={styles.dropdownContent}>
-                    <a href='#'>Ver perfil</a>
+                    <div onClick={() => handleShowProfile(message.user.login)}>Ver perfil</div>
                   </div>
                 </button>
               </div>
