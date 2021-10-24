@@ -1,6 +1,10 @@
-<h1 align="center">
+<h1>
 NLW Heat - React
 </h1>
+
+<p align="center">
+  <img width="280" src="./src/assets/logo.svg">
+</p>  
 
 <p align="center">The web frontend of a chat app that was created at NLW Heat event.</p>
 <p align="center">Deployed <a href="https://nlw-react.vercel.app">here</a>.</p>
