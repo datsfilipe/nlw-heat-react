@@ -7,9 +7,8 @@ NLW Heat - React
 </p>  
 
 <p align="center">The web frontend of a chat app that was created at NLW Heat event.</p>
-<p align="center">Deployed <a href="https://nlw-react.vercel.app">here</a>.</p>
+<!-- <p align="center">Deployed <a href="https://nlw-react.vercel.app">here</a>.</p> -->
 
-<hr>
 
 <h2 align="center">
 Home Screen
