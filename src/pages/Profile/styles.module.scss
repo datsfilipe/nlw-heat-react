@@ -1,0 +1,121 @@
+.header {
+  width: 100vw;
+  padding: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(#1b1b1f 15%, #121214 100%);
+
+  @keyframes expandButton {
+    from {
+      padding: 1rem;
+      left: 2rem;
+    }
+    50% {
+      
+    }
+    to {
+      padding: 1rem;
+      left: 2rem;
+    }
+  }
+
+  button {
+    background-color: #e1e1e6;
+    position: absolute;
+    left: 2rem;
+
+    cursor: pointer;
+    border: none;
+    outline: none;
+    border-radius: 50%;
+    padding: 1rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    transition: all 200ms;
+
+    &:hover {
+      padding: 1.5rem;
+      left: 1.5rem;
+    }
+  }
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: relative;
+
+  padding-top: 3rem;
+
+  @keyframes showItem {
+    from {
+      bottom: -3rem;
+      opacity: 0.4;
+    }
+    to {
+      bottom: 0;
+      opacity: 1;
+    }
+  }
+
+  .userCardContainer {
+    div {
+      animation-name: showItem;
+      animation-duration: 800ms;
+      animation-iteration-count: 1;
+    }
+  }
+
+  .messages {
+    background: #1b1b1f;
+    align-self: center;
+    padding-bottom: 2rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    position: relative;
+    list-style: none;
+    gap: 1.2rem;
+    
+    animation-name: showItem;
+    animation-duration: 800ms;
+    animation-iteration-count: 1;
+
+    .messagesTitle {
+      font-size: 2rem;
+      padding: 2.4rem;
+      width: 100%;
+      background-color: #29292e;
+    }
+
+    .message {
+      max-width: 80%;
+      display: flex;
+      flex-direction: column;
+      min-width: 28rem;
+      position: relative;
+      background: #29292e;
+      color: #e1e1e6;
+      font-size: 1.5rem;
+      padding: 1.3rem;
+      border-radius: 8px;
+
+      .messageCreatedTime {
+        align-self: flex-start;
+        padding-top: 0.5rem;
+        font-size: 1.2rem;
+        color: #c0c0c0;
+      }
+    }
+  }
+}
